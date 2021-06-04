@@ -1,7 +1,21 @@
-<p>users works!</p>
-
 <div class="p-4">
-  <div *ngFor="let user of usersService._users">
-    <div>Name: {{ user.name }}</div>
+  <div *ngFor="let user of usersService._users" class="userName">
+    <div class="row">
+      <div class="col-10">{{ user.name }}</div>
+      <div class="col-2">
+        <button
+          class="btn btn-primary"
+          (click)="usersService.getPostByUserId(user.id)"
+        >
+          Show posts
+        </button>
+      </div>
+    </div>
+
+    <div class="row p-4 mt-2" *ngIf="usersService._selectedUser == user.id">
+      <div class="col-3" *ngFor="let post of usersService._posts">
+        <app-posts [post]="post"></app-posts>
+      </div>
+    </div>
   </div>
 </div>

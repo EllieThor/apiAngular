@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ErrorsService } from './error.service';
 import { SettingsService } from './settings.service';
 
 @Injectable({
@@ -8,23 +9,43 @@ import { SettingsService } from './settings.service';
 export class ApiService {
   constructor(
     private httpClient: HttpClient,
-    public settingsService: SettingsService
+    public settingsService: SettingsService,
+    public errorService: ErrorsService
   ) {}
 
-  createGetService(params: string) {
+  createPostService(url: string, ob: any) {
     return new Promise(async (resolve, reject) => {
       try {
         await this.httpClient
-          .get(this.settingsService.baseUrl + params)
+          .post(this.settingsService.baseUrl + url, ob)
           .subscribe(
-            (data: any) => {
-              console.log('Data : ', data);
+            (data) => {
               resolve(data);
             },
-            (error: any) => {
+            (error) => {
+              this.errorService.errorHandlingHttp(error);
               console.log('oops', error, error.error);
             }
           );
+      } catch (err) {
+        console.log('ERRORRR : ', err);
+        console.log(err);
+      }
+    });
+  }
+
+  createGetService(url: string, headParams?: any) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await this.httpClient.get(this.settingsService.baseUrl + url).subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (error) => {
+            this.errorService.errorHandlingHttp(error);
+            console.log('oops', error, error.error);
+          }
+        );
       } catch (err) {
         console.log('ERRORRR : ', err);
         console.log(err);
