@@ -1,0 +1,28 @@
+<div class="text-center">
+  <button
+    class="btn btn-info m-3 p-2"
+    (click)="usersService._buttonsStatus = 0"
+  >
+    Gallery
+  </button>
+  <button
+    class="btn btn-info m-3 p-2"
+    (click)="usersService._buttonsStatus = 1"
+  >
+    Posts
+  </button>
+</div>
+<hr />
+
+<div
+  class="row"
+  [ngClass]="usersService._buttonsStatus === 0 ? 'm-1' : 'HideCOMP'"
+>
+  <app-gallery></app-gallery>
+</div>
+<div
+  class="row"
+  [ngClass]="usersService._buttonsStatus === 1 ? 'm-1' : 'HideCOMP'"
+>
+  <app-users></app-users>
+</div>

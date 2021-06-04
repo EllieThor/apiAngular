@@ -14,6 +14,7 @@ import { DisplayAlbumsComponent } from './pages/gallery/display-albums/display-a
 import { SingleAlbumsComponent } from './pages/gallery/display-albums/single-albums/single-albums.component';
 import { DisplayPhotosComponent } from './pages/gallery/display-photos/display-photos.component';
 import { SinglePhotoComponent } from './pages/gallery/display-photos/single-photo/single-photo.component';
+import { NavButtonsComponent } from './pages/nav-buttons/nav-buttons.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SinglePhotoComponent } from './pages/gallery/display-photos/single-phot
     SingleAlbumsComponent,
     DisplayPhotosComponent,
     SinglePhotoComponent,
+    NavButtonsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

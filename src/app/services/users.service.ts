@@ -9,6 +9,7 @@ export class UsersService {
   _selectedUser: number = 0;
   _selectedAlbumId: number = 1;
   _selectedPhotoId: number = 1;
+  _buttonsStatus: number = 0;
   _users: Array<User> = [];
   _posts: Array<Post> = [];
   _albums: Array<Album> = [];
