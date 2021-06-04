@@ -1,0 +1,7 @@
+.albumsCOL {
+  height: 500px;
+  overflow-y: auto;
+}
+.gallerySec {
+  border: 1px solid rgba(190, 36, 36, 0.548);
+}

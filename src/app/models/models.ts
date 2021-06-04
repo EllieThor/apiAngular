@@ -11,3 +11,17 @@ export class Post {
   title: string = '';
   body: string = '';
 }
+
+export class Album {
+  userId: number = 0;
+  id: number = 0;
+  title: string = '';
+}
+
+export class Photo {
+  albumId: number = 0;
+  id: number = 0;
+  title: string = '';
+  url: string = '';
+  thumbnailUrl: string = '';
+}

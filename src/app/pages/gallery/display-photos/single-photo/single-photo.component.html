@@ -1,0 +1,10 @@
+<div
+  class="carousel-item"
+  [ngClass]="photo.id == usersService._selectedPhotoId ? 'active' : ''"
+>
+  <img
+    src="{{ photo.thumbnailUrl }}"
+    class="d-block w-100 IMG"
+    alt="{{ photo.title }}"
+  />
+</div>

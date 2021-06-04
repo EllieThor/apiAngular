@@ -7,9 +7,27 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './pages/users/users.component';
 import { PostsComponent } from './pages/users/posts/posts.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { UsersNavComponent } from './pages/gallery/users-nav/users-nav.component';
+import { SingleButtonNavComponent } from './pages/gallery/users-nav/single-button-nav/single-button-nav.component';
+import { DisplayAlbumsComponent } from './pages/gallery/display-albums/display-albums.component';
+import { SingleAlbumsComponent } from './pages/gallery/display-albums/single-albums/single-albums.component';
+import { DisplayPhotosComponent } from './pages/gallery/display-photos/display-photos.component';
+import { SinglePhotoComponent } from './pages/gallery/display-photos/single-photo/single-photo.component';
 
 @NgModule({
-  declarations: [AppComponent, UsersComponent, PostsComponent],
+  declarations: [
+    AppComponent,
+    UsersComponent,
+    PostsComponent,
+    GalleryComponent,
+    UsersNavComponent,
+    SingleButtonNavComponent,
+    DisplayAlbumsComponent,
+    SingleAlbumsComponent,
+    DisplayPhotosComponent,
+    SinglePhotoComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

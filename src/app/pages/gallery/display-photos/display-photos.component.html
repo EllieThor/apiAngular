@@ -1,0 +1,36 @@
+<div
+  id="carouselExampleControls"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-inner" *ngFor="let photo of usersService._photos">
+    <app-single-photo [photo]="photo"></app-single-photo>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleControls"
+    data-bs-slide="prev"
+    (click)="this.usersService.updateSelectedPhoto(0)"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleControls"
+    data-bs-slide="next"
+    (click)="this.usersService.updateSelectedPhoto(1)"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div
+  id="carouselExampleIndicators"
+  #mycarouselControls
+  class="carousel slide"
+  data-ride="carousel"
+  data-interval="2000"
+></div>
