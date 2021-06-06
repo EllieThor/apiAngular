@@ -1,6 +1,30 @@
 <div class="card cardBody mt-2">
   <div class="card-body">
-    <h5 class="card-title">{{ post.title }}</h5>
-    <p class="card-text">{{ post.body }}</p>
+    <h5 class="card-title mb-2 text-center postTitle">{{ post.title }}</h5>
+    <div class="card-text">{{ post.body }}</div>
+    <button
+      class="btn btn-success my-3"
+      (click)="usersService.getCommentsByPostId(post.id)"
+    >
+      view comments
+    </button>
+    <button
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample"
+      aria-expanded="false"
+      aria-controls="collapseExample"
+      (click)="usersService.getCommentsByPostId(post.id)"
+    >
+      view comments Button
+    </button>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        Some placeholder content for the collapse component. This panel is
+        hidden by default but revealed when the user activates the relevant
+        trigger.
+      </div>
+    </div>
   </div>
 </div>

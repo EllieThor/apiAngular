@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Album, Photo, Post, Todo, User } from '../models/models';
+import { Album, Comment, Photo, Post, Todo, User } from '../models/models';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -8,11 +8,13 @@ import { ApiService } from './api.service';
 export class UsersService {
   _buttonsStatus: number = 0;
   _selectedUser: number = 0;
+  _selectedPost: number = 0;
   _selectedAlbumId: number = 1;
   _selectedPhotoId: number = 1;
   _selectedTodoId: number = 0;
   _users: Array<User> = [];
   _posts: Array<Post> = [];
+  _comments: Array<Comment> = [];
   _albums: Array<Album> = [];
   _photos: Array<Photo> = [];
   _todos: Array<Todo> = [];
@@ -31,12 +33,20 @@ export class UsersService {
     // this.updateSelectedUser(this._selectedUser);
     console.log('Todos: ', this._todos);
   }
+
   async getPostByUserId(userId: number) {
     this._posts = (await this.apiService.createGetService(
       '/posts?userId=' + userId
     )) as Array<Post>;
     this.updateSelectedUser(userId);
     console.log('Posts: ', this._posts);
+  }
+  async getCommentsByPostId(postId: number) {
+    this._comments = (await this.apiService.createGetService(
+      '/comments?postId=' + postId
+    )) as Array<Comment>;
+    this.updateSelectedPost(postId);
+    console.log('Posts: ', this._comments);
   }
 
   async getAlbumsByUserId(userId: number) {
@@ -58,6 +68,11 @@ export class UsersService {
   updateSelectedUser(id: number) {
     if (id == this._selectedUser) this._selectedUser = 0;
     else this._selectedUser = id;
+  }
+
+  updateSelectedPost(id: number) {
+    if (id == this._selectedPost) this._selectedPost = 0;
+    else this._selectedPost = id;
   }
 
   updateSelectedAlbum(albumId: number) {

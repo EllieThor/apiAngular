@@ -12,6 +12,14 @@ export class Post {
   body: string = '';
 }
 
+export class Comment {
+  postId: number = 0;
+  id: number = 0;
+  name: string = '';
+  email: string = '';
+  body: string = '';
+}
+
 export class Album {
   userId: number = 0;
   id: number = 0;

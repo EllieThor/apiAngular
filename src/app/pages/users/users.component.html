@@ -13,7 +13,7 @@
     </div>
 
     <div class="row p-4 mt-2" *ngIf="usersService._selectedUser == user.id">
-      <div class="col-3" *ngFor="let post of usersService._posts">
+      <div class="col-4" *ngFor="let post of usersService._posts">
         <app-posts [post]="post"></app-posts>
       </div>
     </div>

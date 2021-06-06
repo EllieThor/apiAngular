@@ -35,12 +35,6 @@
   <div class="row my-2">
     <div *ngFor="let todo of usersService._todos">
       <app-single-todo [todo]="todo"></app-single-todo>
-      <!-- <div class="row">
-        <div class="col-1 text-end">
-          <i class="far fa-check-square vIcon"></i>
-        </div>
-        <div class="col-6">{{ todo.title }}</div>
-      </div> -->
     </div>
   </div>
 </div>
