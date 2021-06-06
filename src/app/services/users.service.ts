@@ -9,6 +9,7 @@ export class UsersService {
   _buttonsStatus: number = 0;
   _selectedUser: number = 0;
   _selectedPost: number = 0;
+  _selectedComment: number = 0;
   _selectedAlbumId: number = 1;
   _selectedPhotoId: number = 1;
   _selectedTodoId: number = 0;
@@ -45,7 +46,8 @@ export class UsersService {
     this._comments = (await this.apiService.createGetService(
       '/comments?postId=' + postId
     )) as Array<Comment>;
-    this.updateSelectedPost(postId);
+    this.updateSelectedComment(postId);
+    console.log('postId: ', postId);
     console.log('Posts: ', this._comments);
   }
 
@@ -53,7 +55,7 @@ export class UsersService {
     this._albums = (await this.apiService.createGetService(
       '/albums?userId=' + userId
     )) as Array<Album>;
-    this.updateSelectedUser(userId);
+    // this.updateSelectedUser(userId);
     console.log('Albums: ', this._albums);
   }
 
@@ -75,6 +77,11 @@ export class UsersService {
     else this._selectedPost = id;
   }
 
+  updateSelectedComment(id: number) {
+    if (id == this._selectedComment) this._selectedComment = 0;
+    else this._selectedComment = id;
+  }
+
   updateSelectedAlbum(albumId: number) {
     if (albumId == this._selectedAlbumId) this._selectedAlbumId = 0;
     else this._selectedAlbumId = albumId;
@@ -86,4 +93,13 @@ export class UsersService {
       console.log('PHOTO ID: ', this._selectedPhotoId);
     } else this._selectedPhotoId = this._selectedPhotoId - 1;
   }
+
+  // updateSelectedPhoto() {
+  //   this._selectedPhotoId = this._photos[0].id;
+  //   console.log('PHOTO ID: ', this._selectedPhotoId);
+  //   // if (type == 0) {
+  //   //   this._selectedPhotoId = this._selectedPhotoId + 1;
+  //   //   console.log('PHOTO ID: ', this._selectedPhotoId);
+  //   // } else this._selectedPhotoId = this._selectedPhotoId - 1;
+  // }
 }

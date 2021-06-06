@@ -1,0 +1,5 @@
+<!-- <div *ngIf="usersService._selectedPost == post.id"> -->
+<div *ngFor="let comment of usersService._comments">
+  <app-single-comment [comment]="comment"></app-single-comment>
+</div>
+<!-- </div> -->

@@ -1,5 +1,6 @@
 .cardBody {
   height: 300px;
+  overflow-y: auto;
 }
 .postTitle {
   color: blue;

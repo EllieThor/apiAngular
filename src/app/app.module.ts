@@ -17,6 +17,8 @@ import { SinglePhotoComponent } from './pages/gallery/display-photos/single-phot
 import { NavButtonsComponent } from './pages/nav-buttons/nav-buttons.component';
 import { TodosComponent } from './pages/todos/todos.component';
 import { SingleTodoComponent } from './pages/todos/single-todo/single-todo.component';
+import { CommentsComponent } from './pages/users/comments/comments.component';
+import { SingleCommentComponent } from './pages/users/comments/single-comment/single-comment.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { SingleTodoComponent } from './pages/todos/single-todo/single-todo.compo
     NavButtonsComponent,
     TodosComponent,
     SingleTodoComponent,
+    CommentsComponent,
+    SingleCommentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
