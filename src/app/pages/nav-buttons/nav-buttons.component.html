@@ -11,6 +11,12 @@
   >
     Posts
   </button>
+  <button
+    class="btn btn-info m-3 p-2"
+    (click)="usersService._buttonsStatus = 2"
+  >
+    Todos
+  </button>
 </div>
 <hr />
 
@@ -25,4 +31,10 @@
   [ngClass]="usersService._buttonsStatus === 1 ? 'm-1' : 'HideCOMP'"
 >
   <app-users></app-users>
+</div>
+<div
+  class="row"
+  [ngClass]="usersService._buttonsStatus === 2 ? 'm-1' : 'HideCOMP'"
+>
+  <app-todos></app-todos>
 </div>

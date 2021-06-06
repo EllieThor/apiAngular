@@ -22,6 +22,13 @@ export class UsersService {
     console.log('Users: ', this._users);
   }
 
+  async getTodosByUserId(userId: number) {
+    this._posts = (await this.apiService.createGetService(
+      '/todos?userId=' + userId
+    )) as Array<Post>;
+    this.updateSelectedUser(userId);
+    console.log('Posts: ', this._posts);
+  }
   async getPostByUserId(userId: number) {
     this._posts = (await this.apiService.createGetService(
       '/posts?userId=' + userId
