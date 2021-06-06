@@ -28,7 +28,7 @@ export class UsersService {
     this._todos = (await this.apiService.createGetService(
       '/todos?userId=' + this._selectedUser
     )) as Array<Todo>;
-    this.updateSelectedUser(this._selectedUser);
+    // this.updateSelectedUser(this._selectedUser);
     console.log('Todos: ', this._todos);
   }
   async getPostByUserId(userId: number) {

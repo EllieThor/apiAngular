@@ -1,14 +1,17 @@
 <div class="container">
-  <div class="row">
-    <div class="col-3">
-      <div class="form-group p-5">
+  <div class="row my-2">
+    <div class="col-1">
+      <label for="users">select users</label>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
         <div class="form-group">
-          <label for="users">users select</label>
           <select
             [(ngModel)]="usersService._selectedUser"
             class="form-control"
             id="users"
           >
+            <!-- FIXME:  עם 1+ יש בהתחלה סלקט ריק ואם אין אז זה מביא את הטודוז של היוזר הקודם -->
             <option
               value="{{ i + 1 }}"
               *ngFor="let user of usersService._users; let i = index"
@@ -17,15 +20,27 @@
             </option>
           </select>
         </div>
-        <button
-          type="button"
-          class="btn btn-primary mt-2"
-          (click)="(usersService.getTodosByUserId)"
-        >
-          Submit
-        </button>
       </div>
     </div>
+    <div class="col-4">
+      <button
+        type="button"
+        class="btn btn-primary mt-2"
+        (click)="usersService.getTodosByUserId()"
+      >
+        Get Todos
+      </button>
+    </div>
   </div>
-  <div class="row">{{ usersService._selectedUser }}</div>
+  <div class="row my-2">
+    <div *ngFor="let todo of usersService._todos">
+      <app-single-todo [todo]="todo"></app-single-todo>
+      <!-- <div class="row">
+        <div class="col-1 text-end">
+          <i class="far fa-check-square vIcon"></i>
+        </div>
+        <div class="col-6">{{ todo.title }}</div>
+      </div> -->
+    </div>
+  </div>
 </div>

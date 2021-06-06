@@ -16,6 +16,7 @@ import { DisplayPhotosComponent } from './pages/gallery/display-photos/display-p
 import { SinglePhotoComponent } from './pages/gallery/display-photos/single-photo/single-photo.component';
 import { NavButtonsComponent } from './pages/nav-buttons/nav-buttons.component';
 import { TodosComponent } from './pages/todos/todos.component';
+import { SingleTodoComponent } from './pages/todos/single-todo/single-todo.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TodosComponent } from './pages/todos/todos.component';
     SinglePhotoComponent,
     NavButtonsComponent,
     TodosComponent,
+    SingleTodoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
