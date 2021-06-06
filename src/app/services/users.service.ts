@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Album, Photo, Post, User } from '../models/models';
+import { Album, Photo, Post, Todo, User } from '../models/models';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
+  _buttonsStatus: number = 0;
   _selectedUser: number = 0;
   _selectedAlbumId: number = 1;
   _selectedPhotoId: number = 1;
-  _buttonsStatus: number = 0;
+  _selectedTodoId: number = 0;
   _users: Array<User> = [];
   _posts: Array<Post> = [];
   _albums: Array<Album> = [];
   _photos: Array<Photo> = [];
+  _todos: Array<Todo> = [];
 
   constructor(public apiService: ApiService) {}
 
@@ -22,12 +24,12 @@ export class UsersService {
     console.log('Users: ', this._users);
   }
 
-  async getTodosByUserId(userId: number) {
-    this._posts = (await this.apiService.createGetService(
-      '/todos?userId=' + userId
-    )) as Array<Post>;
-    this.updateSelectedUser(userId);
-    console.log('Posts: ', this._posts);
+  async getTodosByUserId() {
+    this._todos = (await this.apiService.createGetService(
+      '/todos?userId=' + this._selectedUser
+    )) as Array<Todo>;
+    this.updateSelectedUser(this._selectedUser);
+    console.log('Todos: ', this._todos);
   }
   async getPostByUserId(userId: number) {
     this._posts = (await this.apiService.createGetService(

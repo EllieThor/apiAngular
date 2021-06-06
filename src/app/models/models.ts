@@ -25,3 +25,10 @@ export class Photo {
   url: string = '';
   thumbnailUrl: string = '';
 }
+
+export class Todo {
+  userId: number = 0;
+  id: number = 0;
+  title: string = '';
+  completed: string = '';
+}

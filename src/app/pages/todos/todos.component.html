@@ -1,43 +1,31 @@
-<!-- <div class="container">
+<div class="container">
   <div class="row">
-    <div class="col-4">
-      <label for="users">users select</label>
-
-      <select
-        class="form-select"
-        [ngModel]="usersService._selectedUser"
-        id="users"
-      >
-        <option *ngFor="let user of usersService._users" value="{{ user.id }}">
-          {{ user.name }}
-        </option>
-      </select>
+    <div class="col-3">
+      <div class="form-group p-5">
+        <div class="form-group">
+          <label for="users">users select</label>
+          <select
+            [(ngModel)]="usersService._selectedUser"
+            class="form-control"
+            id="users"
+          >
+            <option
+              value="{{ i + 1 }}"
+              *ngFor="let user of usersService._users; let i = index"
+            >
+              {{ user.name }}
+            </option>
+          </select>
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary mt-2"
+          (click)="(usersService.getTodosByUserId)"
+        >
+          Submit
+        </button>
+      </div>
     </div>
   </div>
-</div> -->
-<div class="form-group p-5">
-  <div class="form-group">
-    <label for="users">users select</label>
-
-    <select
-      [(ngModel)]="usersService._selectedUser"
-      class="form-control"
-      id="users"
-    >
-      <option
-        value="{{ i }}"
-        *ngFor="let student of usersService._users; let i = index"
-      >
-        {{ user.name }}
-      </option>
-    </select>
-  </div>
-
-  <button
-    type="button"
-    class="btn btn-primary mt-2"
-    (click)="usersService.getTodosByUserId()"
-  >
-    Submit
-  </button>
+  <div class="row">{{ usersService._selectedUser }}</div>
 </div>
