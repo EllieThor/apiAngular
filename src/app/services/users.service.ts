@@ -13,6 +13,7 @@ export class UsersService {
   _selectedAlbumId: number = 1;
   _selectedPhotoId: number = 1;
   _selectedTodoId: number = 0;
+  _GalleryCounter: number = 1;
   _users: Array<User> = [];
   _posts: Array<Post> = [];
   _comments: Array<Comment> = [];
@@ -65,6 +66,7 @@ export class UsersService {
     )) as Array<Photo>;
     this.updateSelectedAlbum(albumId);
     console.log('Album Photos: ', this._photos);
+    this._GalleryCounter = 1;
   }
 
   updateSelectedUser(id: number) {
@@ -88,10 +90,14 @@ export class UsersService {
   }
 
   updateSelectedPhoto(type: number) {
-    if (type == 0) {
-      this._selectedPhotoId = this._selectedPhotoId + 1;
+    if (type == 0 && this._GalleryCounter < this._photos.length) {
+      this._selectedPhotoId = this._selectedPhotoId - 1;
+      this._GalleryCounter++;
       console.log('PHOTO ID: ', this._selectedPhotoId);
-    } else this._selectedPhotoId = this._selectedPhotoId - 1;
+    } else if (this._GalleryCounter > 1) {
+      this._selectedPhotoId = this._selectedPhotoId + 1;
+      this._GalleryCounter--;
+    }
   }
 
   // updateSelectedPhoto() {
